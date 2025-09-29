@@ -1,0 +1,1654 @@
+:root {
+  --primary: #8e05c2;
+  --black: #0f0f0f;
+  --white: #fff;
+  --gray: #7a7a7a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+}
+
+html, body, * {
+cursor: none !important;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5rem 6rem;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+header.hidden {
+  transform: translateY(-100%);
+}
+
+header .container .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container .content .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .container .content .logo a {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+header .container .content nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+header.aos-init.aos-animate.hidden {
+  transform: translateY(-100%);
+}
+
+header .container .content nav a {
+  display: flex;
+  flex-direction: column;
+  font: 600 1rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  transition: 0.2s linear;
+}
+
+header .container .content nav a::after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid #fff;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+header .container .content nav a:hover::after {
+  transform: scaleX(1);
+  transition: 0.2s linear;
+}
+
+header .container .content .extra-nav {
+  display: flex;
+  align-items: center;
+}
+
+header .container .content .extra-nav a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 2rem;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  font: 500 1rem "IBM Plex Sans", sans-serif;
+  color: #fff;
+  overflow: hidden;
+  mix-blend-mode: difference;
+}
+
+header .container .content .extra-nav a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--white);
+  border-radius: 50%;
+  padding: 2px;
+  transform: scale(0);
+  transition: transform 0.1s linear;
+}
+
+header .container .content .extra-nav a:hover::before {
+  transform: scale(70);
+  transition: transform 0.1s linear;
+}
+
+header .container .content .extra-nav a span {
+  position: relative;
+  transition: color 0.3s linear;
+}
+
+header .container .content .extra-nav a:hover span {
+  color: var(--black);
+  transition: color 0.3s linear;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero .container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .container .content .shape-1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 30%;
+  animation: shape-1 60s infinite;
+}
+
+.hero .container .content .shape-2 {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 30%;
+  animation: shape-2 120s infinite;
+}
+
+.hero .container .content .line {
+  position: absolute;
+  width: 100%;
+  height: 4%;
+  transform: rotate(45deg);
+  background-color: #fff;
+  top: 0;
+  right: -100%;
+  filter: blur(50px);
+  animation: line 50s infinite;
+}
+
+@keyframes line {
+  from {
+    right: -100%;
+    top: 0;
+    opacity: 30%;
+  }
+
+  to {
+    right: 100%;
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes shape-1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 50%;
+    top: 50%;
+  }
+  50% {
+    left: 30%;
+    top: 80%;
+  }
+  75% {
+    left: 20%;
+    top: 50%;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes shape-2 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 40%;
+    top: 70%;
+  }
+  50% {
+    left: 20%;
+    top: 50%;
+  }
+  75% {
+    left: 50%;
+    top: 100%;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+.hero .container .content .text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  align-items: center; 
+  gap: 1rem;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+
+.hero .container .content .text h1 {
+  font: bolder 3.5rem "IBM Plex Sans", sans-serif;
+  line-height: 3.5rem;
+}
+
+.hero .container .content .text .row-1 {
+  align-self: center;
+  margin-right: 30px;
+}
+
+.hero .container .content .row-2 {
+  font: bolder 3rem "IBM Plex Sans", sans-serif; 
+  color: var(--white);
+  margin-top: 0; 
+}
+
+.hero .container .content .text p {
+  font: bolder 3.5rem "IBM Plex Sans" sans-serif;
+  line-height: 3.5rem;
+  transform: translateX(-3px);
+}
+
+.hero .container .content .text .row-3 {
+  align-self: center;
+    margin-right: 35px;
+}
+
+.scroll-down-container {
+  position: absolute;
+  bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  margin-right: 2px;
+}
+
+.scroll-text {
+  font: 600 0.9rem "IBM Plex Sans", sans-serif;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-left: 5px;
+}
+
+.arrow-down {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: arrow 2s infinite alternate;
+  transition: 0.2s linear;
+  position: relative;
+}
+
+.arrow-down::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--white);
+  border-bottom: 2px solid var(--white);
+  transform: rotate(45deg);
+  margin-top: -4px;
+  transition: 0.2s linear;
+}
+
+.arrow-down:hover {
+  background-color: var(--white);
+  transition: 0.2s linear;
+}
+
+.arrow-down:hover::before {
+  border-color: var(--black);
+  transition: 0.2s linear;
+}
+
+@keyframes arrow {
+  from {
+    transform: translateY(0px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+/* about */
+.about {
+  position: relative;
+  margin: 2rem 0; /* Mengurangi margin dari 4rem */
+  min-height: auto; /* Ubah dari 100vh */
+  overflow: hidden;
+  padding: 3rem 0;
+}
+
+.about .container .content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: auto;
+  width: 100%;
+}
+
+.about-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 3rem 0;
+  gap: 3rem;
+}
+
+.about .container .content .title {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+}
+
+.about .container .content .title h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--gray);
+  margin-top: 6rem;
+}
+
+.about .container .content .title h2 hr {
+  width: 90px;
+  padding: 2px;
+  border: none;
+  background-color: var(--gray);
+  margin-top: 4px;
+}
+
+.about .container .content .title h1 {
+  font: italic bold 1.8rem "IBM Plex Sans", sans-serif;
+}
+
+.about .container .content .profile-container {
+  width: 45%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 50px
+}
+
+.about .container .content .profile-container .profile {
+  width: 50%;
+  height: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 0; 
+}
+.about .container .content .profile-container .profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about .container .content .about-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-left: 0;
+  width: calc(100% - 380px);
+  height: auto;
+  flex: 1;
+  margin-left: 50px;
+  position: relative; /* Tambahkan ini */
+}
+
+.about-buttons-container {
+  display: flex;
+  justify-content: space-between; /* Kiri dan kanan */
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.about .container .content .about-me p {
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6rem;
+    text-align: left;
+  font-size: 1.1rem;
+}
+
+.about-buttons-container {
+  display: flex];
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1rem; /* Tambahkan gap untuk mendekatkan tombol */
+}
+
+.about-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 12px 28px;
+  background-color: var(--black);
+  border: 2px solid #fff;
+  border-radius: 32px;
+  font: bold 1rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 1; /* Tambahkan ini agar tombol memiliki lebar yang sama */
+  max-width: 200px; /* Batasi lebar maksimum tombol */
+}
+
+.about-btn:hover {
+  color: var(--black);
+  background-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Untuk desktop - atur jarak lebih dekat */
+@media (min-width: 769px) {
+  .about-buttons-container {
+    justify-content: center; /* Pusatkan tombol */
+    gap: 2rem; /* Kurangi gap antara tombol */
+  }
+  
+  .about-btn {
+    flex: 0 1 auto; /* Kembalikan ke ukuran konten */
+    min-width: 180px; /* Beri lebar minimum */
+  }
+}
+
+/* Responsive design untuk mobile */
+@media (max-width: 768px) {
+  .about-buttons-container {
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .about-btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
+
+.about .container .content .text-wrapper {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.about .container .content .text-wrapper .text {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2rem;
+  animation: marquee 8s linear infinite;
+}
+
+.about .container .content .text-wrapper .text h1 {
+  font: italic bold 9rem "IBM Plex Sans", sans-serif;
+  white-space: nowrap;
+}
+
+.about .container .content .text-wrapper .text h1 span {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--white);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.text-postcard,
+.text-postcard-1 {
+  width: 48%;
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(159, 159, 159, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.postcard-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.text-postcard:hover,
+.text-postcard-1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+}
+
+
+@media (max-width: 992px) {
+  .postcard-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-postcard,
+  .text-postcard-1 {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.postcard-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -30px;
+}
+
+.stat .number {
+  font: bold 1.5rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+.stat .label {
+  font: 500 0.7rem "IBM Plex Sans", sans-serif;
+  color: var(--gray);
+  margin-top: 0.3rem;
+}
+
+.about-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 3rem 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-me{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1.5rem;
+}
+
+.about-me h2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+    width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .about-content {
+    justify-content: center;
+  }
+  
+  .profile-postcard,
+  .text-postcard {
+    width: 45%;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .profile-postcard,
+  .text-postcard {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .about .container .content .about-me {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about .container .content .profile-container,
+  .about .container .content .about-me {
+    width: 100%;
+  }
+  
+  .about .container .content .about-me {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .about .container .content .profile-container .profile {
+    height: 300px;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.about .container .content .profile-container .profile img {
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+.profile-postcard {
+  width: 330px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(159, 159, 159, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+  margin-top: 63px;
+}
+
+.profile-postcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+}
+
+.postcard-image {
+  width: 200px;
+  height: 200px; 
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.postcard-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.profile-postcard:hover .postcard-image img {
+  transform: scale(1.05);
+}
+
+.postcard-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.postcard-content-1 {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /
+  justify-content: center;
+}
+
+.postcard-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border: none !important;
+}
+
+.postcard-title {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.postcard-subtitle {
+  font: 500 1rem "IBM Plex Sans", sans-serif;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.line-post {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  margin: 1rem 5rem;
+  border: none;
+}
+
+.postcard-text {
+  font: 400 0.9rem "Inter", sans-serif;
+  color: white;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-postcard {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .postcard-image {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* skill */
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem; /* Padding lebih kecil */
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.skills-header h2 {
+    color: var(--gray);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.skills-header h2 hr {
+    width: 70px;
+    padding: 1.5px;
+    border: none;
+    background-color: var(--gray);
+    margin-top: 4px;
+}
+
+.skills-header h1 {
+    font: italic bold 2rem "IBM Plex Sans", sans-serif;
+    margin-bottom: 0.8rem;
+}
+
+.skills-header p {
+    color: var(--gray);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(159, 159, 159, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 170px;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3);
+}
+
+.skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem;
+}
+
+.skill-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--white);
+}
+
+.skill-card h3 {
+    font: italic bold 1.2rem "IBM Plex Sans", sans-serif;
+    margin-bottom: 0.3rem;
+}
+
+.skill-card p {
+    color: var(--gray);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.skill-level {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: 0.8rem;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--primary), #c205c2);
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Responsive adjustments untuk berbagai ukuran layar */
+@media (max-width: 1200px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr); /* Tetap 4 kolom */
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet */
+        gap: 1.5rem;
+    }
+    
+    .skill-card {
+        height: 160px;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom */
+        gap: 1rem;
+    }
+    
+    .skill-card {
+        height: 150px;
+        padding: 1.2rem;
+    }
+    
+    .skill-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .skill-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .skills-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .skill-card {
+        height: 140px;
+        padding: 1rem;
+    }
+    
+    .skill-icon {
+        width: 40px;
+        height: 40px;
+        padding: 0.6rem;
+    }
+    
+    .skill-card h3 {
+        font-size: 1rem;
+    }
+}
+
+/* project */
+.project,
+.contact {
+  margin: 4rem 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.project {
+  margin: 2rem 0;
+  min-height: auto;
+  overflow: hidden;
+  padding: 3rem 0;
+}
+
+.project .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Mengurangi gap */
+}
+
+.project .container .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* Mengurangi margin bottom */
+}
+
+.project .container .content .header button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 15%;
+  padding: 12px;
+  background-color: var(--black);
+  border: 2px solid #fff;
+  border-radius: 32px;
+  font-weight: bold;
+  color: var(--white);
+  transition: all 0.2s linear;
+}
+
+.project .container .content .header button:hover {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.project .container .content .header button .arrow {
+  width: 20px;
+  transform: rotate(135deg);
+  fill: var(--white);
+  transition: all 0.2s linear;
+}
+
+.project .container .content .header button:hover .arrow {
+  transform: rotate(180deg);
+  fill: var(--black);
+  transition: all 0.2s linear;
+}
+
+.project .container .content .header .title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Pastikan ke kanan */
+  text-align: right;
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+  margin-left: auto; /* Dorong ke kanan */
+}
+
+.project .container .content .header .title .row-1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  justify-content: flex-end; /* Pastikan konten di dalam rata kanan */
+  width: 100%;
+}
+
+.project .container .content .header .title .row-1 hr {
+  width: 60px;
+  padding: 1.5px;
+  border: none;
+  background-color: var(--gray);
+  order: 1; /* Garis di kiri text */
+}
+
+.project .container .content .header .title .row-1 span {
+  order: 2; /* Text di kanan garis */
+}
+
+.project .container .content .header .title .row-2 {
+  font-size: 2.5rem;
+  margin-top: -0.5rem;
+  text-align: right;
+  width: 100%;
+}
+
+.project .container .content .project-area {
+  position: relative;
+  display: flex;
+  height: 650px;
+  gap: 1rem;
+}
+
+.project .container .content .project-area:hover .projects:not(:hover) img {
+  filter: brightness(100%);
+  transition: 0.3s linear;
+}
+
+.project .container .content .project-area .projects {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  height: 100%;
+  background: var(--gray);
+  border-radius: 64px;
+  overflow: hidden;
+  filter: grayscale(100);
+}
+
+.project .container .content .project-area .projects img {
+  filter: brightness(100%);
+  width: 100%;
+  height: 100%;
+  transition: 0.3s linear;
+}
+
+.project .container .content .project-area .projects:hover img {
+  filter: brightness(30%);
+}
+
+.project .container .content .project-area .projects .desc {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.project .container .content .project-area .projects .desc h1 {
+  font: italic bold 4rem "IBM Plex Sans", sans-serif;
+}
+
+.project .container .content .project-area .projects .desc p {
+  text-align: center;
+  width: 75%;
+}
+
+.project .container .content .project-area .projects:hover .desc {
+  opacity: 1;
+  transition: opacity 0.2s linear;
+  
+}
+
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0; /* Mengurangi margin dari 2rem */
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    cursor: pointer;
+    padding: 0.7rem 1.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: var(--white);
+    font: 500 0.9rem "IBM Plex Sans", sans-serif;
+    transition: all 0.3s ease;
+}
+      
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--white);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+      
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem; /* Mengurangi gap dari 2rem */
+    margin-top: 1.5rem; /* Mengurangi margin top */
+}
+      
+.project-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(159, 159, 159, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+      
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+      }
+      
+.project-image { 
+    order: 1; 
+    height: 200px;
+    overflow: hidden;
+}
+      
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+      
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Tambahkan gap antara tags */
+    margin: 0 1rem 0.5rem; /* Margin lebih kecil */
+    order: 3;
+}
+
+.project-tag {
+    padding: 0.25rem 0.6rem; /* Padding lebih kecil */
+    border-radius: 10px;
+    font: 500 0.65rem "IBM Plex Sans", sans-serif; /* Font lebih kecil */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    transition: all 0.3s ease;
+    margin: 0; /* Hapus margin individual */
+}
+
+.project-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+      
+.project-content { 
+    order: 2; 
+    padding: 1.2rem;
+    flex-grow: 1;
+}
+
+.demo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem; 
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 18px;
+    color: var(--white);
+    font: 500 0.75rem "IBM Plex Sans", sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    transform: translateX(-5px);
+    margin-top: 0.5rem;
+}
+
+.demo-btn:hover {
+    background: var(--white);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+.project-title {
+    font: bold 0.95rem "IBM Plex Sans", sans-serif; /* Font sedikit lebih kecil */
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+      
+.project-description {
+    font: 400 0.75rem "Inter", sans-serif; /* Font lebih kecil */
+    color: var(--gray);
+    line-height: 1.5;
+    margin-bottom: 0.5rem; /* Tambahkan margin bottom */
+}
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .project-filters {
+          flex-wrap: wrap;
+        }
+      }
+
+      .project-image { order: 1; }
+.project-content { order: 2; }
+.project-tag { order: 3; }
+
+.project-actions { 
+    order: 4; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.2rem 1.2rem; /* Padding lebih kecil */
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-tags {
+        justify-content: center;
+    }
+    
+    .project-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+}
+
+.demo-btn i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.demo-btn:hover i {
+    transform: translateX(3px);
+}
+
+.project-description {
+  transform: translateY(5px);
+}
+
+/* testimonial */
+
+
+/* Contact */
+.contact .container .content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 2rem;
+  margin-top: 100px;
+}
+
+.contact .container .content .title {
+  text-align: center;
+  font: italic bold 1.3rem "IBM Plex Sans", sans-serif;
+}
+
+.contact .container .content .title h2 {
+  color: var(--gray);
+}
+
+.contact .container .content .title h1 {
+  font-size: 3rem;
+}
+
+.contact .container .content .contact-area {
+  display: flex;
+  height: 80%;
+}
+
+.contact .container .content .contact-area .left-side {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact .container .content .contact-area .left-side h1 {
+  font: 500 4rem "IBM Plex Sans", sans-serif;
+  margin-top: .5rem;
+  transform: scale(1, 1.5);
+}
+
+.contact .container .content .contact-area .left-side h1:nth-child(2) {
+  margin-left: 30%;
+}
+
+
+.contact .container .content .contact-area .right-side {
+  width: 40%;
+  height: 100%;
+}
+
+.contact .container .content .contact-area .right-side form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact .container .content .contact-area .right-side form input {
+  padding: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  outline: none;
+  color: var(--white);
+  font-size: 1.2rem;
+  background: transparent;
+}
+
+.contact .container .content .contact-area .right-side form input::placeholde,
+.contact .container .content .contact-area .right-side form textarea::placeholder {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.contact .container .content .contact-area .right-side form textarea {
+  resize: none;
+  height: 150px;
+  padding: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  outline: none;
+  color: var(--white);
+  font-size: 1.2rem;
+  background: transparent;
+}
+
+.contact .container .content .contact-area .right-side form button {
+  cursor: pointer;
+  padding: .7rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--white);
+  border-radius: 16px;
+  font: bold 1.2rem "IBM Plex Sans", sans-serif;
+  background: var(--black);
+  color: var(--white);
+  transition: .2s linear;
+}
+
+.contact .container .content .contact-area .right-side form button:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transition: .2s linear;
+}
+
+footer {
+  min-height: 20vh;
+}
+
+footer .container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .container .content h1 {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+}
+
+footer .container .content .social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .container .content .social .social-icon {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--white);
+}
+
+footer .container .content .social .social-icon i {
+  font-size: 22px;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+footer .container .content .social .social-icon:hover {
+  background-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+footer .container .content .social .social-icon:hover i {
+  color: var(--black);
+}
+
+/* Variasi warna untuk platform berbeda */
+footer .container .content .social .social-icon.linkedin:hover i {
+  color: #0077b5;
+}
+
+footer .container .content .social .social-icon.instagram:hover i {
+  color: #E4405F;
+}
+
+footer .container .content .social .social-icon.tiktok:hover i {
+  color: #000000;
+}
+
+footer .container .content .social .social-icon.github:hover i {
+  color: #333;
+}
+
+footer .container .content .social p {
+  font-weight: bold;
+}
+
+/* Cursor Custom */
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: difference; 
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+  pointer-events: none !important;
+}
+
+a, button, [cursor-hover] {
+  cursor: none !important; 
+}
+
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+[cursor-hover]:hover ~ .custom-cursor {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  border-radius: 50%;
+  animation: ripple 1s infinite;
+  opacity: 0;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.custom-cursor.cursor-click::after {
+  animation: ripple 0.5s forwards;
+}

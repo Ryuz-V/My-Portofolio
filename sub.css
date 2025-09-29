@@ -1,0 +1,497 @@
+:root {
+  --primary: #8e05c2;
+  --black: #0f0f0f;
+  --white: #fff;
+  --gray: #7a7a7a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+}
+
+html, body, * {
+cursor: none !important;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5rem 6rem;
+}
+
+/* HEADER - Sama persis dengan index.css */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+header.hidden {
+  transform: translateY(-100%);
+}
+
+header .container .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container .content .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .container .content .logo a {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+header .container .content nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+header.aos-init.aos-animate.hidden {
+  transform: translateY(-100%);
+}
+
+header .container .content nav a {
+  display: flex;
+  flex-direction: column;
+  font: 600 1rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  transition: 0.2s linear;
+}
+
+header .container .content nav a::after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid #fff;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+header .container .content nav a:hover::after {
+  transform: scaleX(1);
+  transition: 0.2s linear;
+}
+
+header .container .content .extra-nav {
+  display: flex;
+  align-items: center;
+}
+
+header .container .content .extra-nav a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 2rem;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  font: 500 1rem "IBM Plex Sans", sans-serif;
+  color: #fff;
+  overflow: hidden;
+  mix-blend-mode: difference;
+}
+
+header .container .content .extra-nav a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--white);
+  border-radius: 50%;
+  padding: 2px;
+  transform: scale(0);
+  transition: transform 0.1s linear;
+}
+
+header .container .content .extra-nav a:hover::before {
+  transform: scale(70);
+  transition: transform 0.1s linear;
+}
+
+header .container .content .extra-nav a span {
+  position: relative;
+  transition: color 0.3s linear;
+}
+
+header .container .content .extra-nav a:hover span {
+  color: var(--black);
+  transition: color 0.3s linear;
+}
+
+/* Cursor Custom */
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: difference; 
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+  pointer-events: none !important;
+}
+
+a, button, [cursor-hover] {
+  cursor: none !important; 
+}
+
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+[cursor-hover]:hover ~ .custom-cursor {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  border-radius: 50%;
+  animation: ripple 1s infinite;
+  opacity: 0;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.custom-cursor.cursor-click::after {
+  animation: ripple 0.5s forwards;
+}
+
+/* Certificates Section */
+.certificates-section {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+}
+
+.certificates-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.certificates-header h2 {
+  color: var(--gray);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.certificates-header h2 hr {
+  width: 70px;
+  padding: 1.5px;
+  border: none;
+  background-color: var(--gray);
+  margin-top: 4px;
+}
+
+.certificates-header h1 {
+  font: italic bold 2.5rem "IBM Plex Sans", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.certificates-header p {
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.certificate-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(159, 159, 159, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+}
+
+.certificate-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.certificate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.certificate-card:hover .certificate-image img {
+  transform: scale(1.05);
+}
+
+.certificate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certificate-card:hover .certificate-overlay {
+  opacity: 1;
+}
+
+.certificate-card a {
+  padding: 0.8rem 1.5rem;
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  border-radius: 25px;
+  font: 600 0.9rem "IBM Plex Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.certificate-card a:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.certificate-content {
+  padding: 1.5rem;
+}
+
+.certificate-title {
+  font: italic bold 1.3rem "IBM Plex Sans", sans-serif;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.certificate-issuer {
+  font: 500 1rem "IBM Plex Sans", sans-serif;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+}
+
+.certificate-date {
+  font: 400 0.9rem "Inter", sans-serif;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.certificate-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.certificate-tag {
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  font: 500 0.8rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: var(--white);
+  font: 500 1rem "IBM Plex Sans", sans-serif;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.back-btn:hover {
+  background: var(--white);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+
+footer {
+  min-height: 20vh;
+  margin-top: 4rem;
+}
+
+footer .container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .container .content h1 {
+  font: italic bold 1.5rem "IBM Plex Sans", sans-serif;
+}
+
+footer .container .content .social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer .container .content .social .social-icon {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--white);
+}
+
+footer .container .content .social .social-icon i {
+  font-size: 22px;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+footer .container .content .social .social-icon:hover {
+  background-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+footer .container .content .social .social-icon:hover i {
+  color: var(--black);
+}
+
+/* Variasi warna untuk platform berbeda */
+footer .container .content .social .social-icon.linkedin:hover i {
+  color: #0077b5;
+}
+
+footer .container .content .social .social-icon.instagram:hover i {
+  color: #E4405F;
+}
+
+footer .container .content .social .social-icon.tiktok:hover i {
+  color: #000000;
+}
+
+footer .container .content .social .social-icon.github:hover i {
+  color: #333;
+}
+
+footer .container .content .social p {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 2rem;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  header .container .content nav {
+    gap: 2rem;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+}
