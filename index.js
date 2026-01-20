@@ -67,14 +67,15 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Initialize Lenis for smooth scrolling - SEDIKIT LEBIH LAMBAT
+// Initialize Lenis for smooth scrolling - LEBIH CEPAT
 function initLenis() {
-const lenis = new Lenis({
-  duration: 1.5,
-  easing: (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
-  wheelMultiplier: 0.9,
-  touchMultiplier: 1.3,
-});
+  const lenis = new Lenis({
+    duration: 0.8, // DURASI DIKURANGI (lebih cepat) - sebelumnya 1.5
+    easing: (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
+    wheelMultiplier: 1.1, // DITAMBAH (lebih responsif)
+    touchMultiplier: 1.5, // DITAMBAH (lebih responsif di touch)
+    smoothWheel: true, // Tambahkan ini untuk smooth scroll wheel
+  });
 
   // Animation frame
   function raf(time) {
@@ -84,7 +85,7 @@ const lenis = new Lenis({
 
   requestAnimationFrame(raf);
 
-  // Handle anchor links dengan durasi yang pas
+  // Handle anchor links dengan durasi yang lebih cepat
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -92,7 +93,7 @@ const lenis = new Lenis({
       if (target) {
         lenis.scrollTo(target, {
           offset: -80,
-          duration: 1.4, // Sedikit lebih lambat untuk anchor links
+          duration: 0.5, // DURASI DIKURANGI (lebih cepat) - sebelumnya 1.4
           easing: (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t, // Smooth easing
         });
       }
@@ -127,3 +128,113 @@ if (typeof Lenis !== 'undefined') {
     });
   });
 }
+
+// Ganti script terminal loading dengan yang ini
+document.addEventListener('DOMContentLoaded', function() {
+  const terminal = document.getElementById('terminal-output');
+  const loader = document.getElementById('terminal-loader');
+  const body = document.body;
+  
+  // Teks awal seperti command prompt Windows
+  let output = "Microsoft Windows [Version 10.0.26200.7623]\n";
+  output += "(c) Microsoft Corporation. All rights reserved.\n\n";
+  output += "C:\\Users\\jathniel> ";
+  
+  terminal.textContent = output;
+  
+  // Tambahkan sedikit delay sebelum mengetik command
+  setTimeout(() => {
+    typeCommand();
+  }, 800);
+  
+  let charIndex = 0;
+  const command = "sudo pacman -S crow";
+  
+  function typeCommand() {
+    if (charIndex < command.length) {
+      output += command[charIndex];
+      terminal.textContent = output;
+      charIndex++;
+      setTimeout(typeCommand, 50); // Kecepatan mengetik
+    } else {
+      // Command selesai diketik, tambahkan newline
+      output += "\n\n";
+      terminal.textContent = output;
+      
+      // Tunggu sebentar lalu mulai loading sequence
+      setTimeout(() => {
+        typeLogs();
+      }, 300);
+    }
+  }
+  
+  const logs = [
+    "Initializing portfolio system...",
+    "Loading components...",
+    "Rendering interface...",
+    "Connecting to database...",
+    "Mounting assets directory...",
+    "Starting network services..."
+  ];
+  
+  let logIndex = 0;
+  let progress = 0;
+  
+  function typeLogs() {
+    if (logIndex < logs.length) {
+      output += logs[logIndex] + "\n";
+      terminal.textContent = output;
+      logIndex++;
+      setTimeout(typeLogs, 250);
+    } else {
+      startProgress();
+    }
+  }
+  
+  function startProgress() {
+    if (progress < 100) {
+      progress += Math.floor(Math.random() * 6) + 4;
+      if (progress > 100) progress = 100;
+      
+      const barLength = 20;
+      const filled = Math.floor((progress / 100) * barLength);
+      const empty = barLength - filled;
+      const bar = "█".repeat(filled) + "░".repeat(empty);
+      
+      terminal.innerHTML = output + `Loading assets [${bar}] ${progress}%<span class="cursor">▌</span>`;
+      setTimeout(startProgress, 120);
+    } else {
+      output += "Loading assets [████████████████████] 100%\n";
+      output += "Verifying dependencies...\n";
+      output += "System ready ✔\n";
+      output += "Launching portfolio...\n";
+      
+      terminal.textContent = output;
+      
+      setTimeout(() => {
+        // Fade out loader
+        loader.classList.add('hidden');
+        body.classList.remove('loading');
+        
+        // Initialize AOS AFTER loading is complete
+        setTimeout(() => {
+          if (typeof AOS !== 'undefined') {
+            // Inisialisasi AOS hanya setelah loading selesai
+            AOS.init({
+              duration: 1000,
+              once: false,
+              mirror: true
+            });
+            
+            console.log('AOS initialized after loading complete');
+          }
+        }, 300);
+        
+        // Remove loader from DOM after fade out
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 700);
+    }
+  }
+});

@@ -1652,3 +1652,14 @@ button:hover ~ .custom-cursor,
 .custom-cursor.cursor-click::after {
   animation: ripple 0.5s forwards;
 }
+
+/* Di dalam style tag terminal-loader, tambahkan ini: */
+.terminal-output span.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
